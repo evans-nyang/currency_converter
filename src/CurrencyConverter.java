@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.awt.event.*;
-// import java.applet.*;
 import javax.swing.*;
 
 public class CurrencyConverter extends Frame implements ItemListener, ActionListener {
@@ -32,7 +31,7 @@ public class CurrencyConverter extends Frame implements ItemListener, ActionList
         convertFrom.addItem("US Dollar");
         convertFrom.addItem("Euro");
         convertFrom.addItem("Sterling Pound");
-        convertFrom.addItem("Kenyan Shilling");
+        convertFrom.addItem("KE Shilling");
         convertFrom.addItem("TZ Shilling");
         convertFrom.addItem("SA Rand");
         add(convertFrom);
@@ -47,7 +46,7 @@ public class CurrencyConverter extends Frame implements ItemListener, ActionList
         convertTo.addItem("US Dollar");
         convertTo.addItem("Euro");
         convertTo.addItem("Sterling Pound");
-        convertTo.addItem("Kenyan Shilling");
+        convertTo.addItem("KE Shilling");
         convertTo.addItem("TZ Shilling");
         convertTo.addItem("SA Rand");
         add(convertTo);
@@ -101,7 +100,6 @@ public class CurrencyConverter extends Frame implements ItemListener, ActionList
 
         // when clear button is pressed
         clear.addActionListener(new ActionListener() {
-            // @Override
             public void actionPerformed(ActionEvent e) {
                 clear();
             }
@@ -112,9 +110,7 @@ public class CurrencyConverter extends Frame implements ItemListener, ActionList
     // clear method
     public void clear() {
         txtFrom.setText("");
-        // txtFrom.requestFocus();
         txtTo.setText("");
-        // txtTo.requestFocus();
     }
 
     // the exit method
@@ -130,14 +126,14 @@ public class CurrencyConverter extends Frame implements ItemListener, ActionList
         w.setVisible(true);
     }
 
-    public void ConvertDollar() {
+    public void convertDollar() {
         if (convertTo.getSelectedItem() == "Euro") {
             result = (input * 0.96);
             txtTo.setText("" + result);
         } else if (convertTo.getSelectedItem() == "Sterling Pound") {
             result = (input * 0.84);
             txtTo.setText("" + result);
-        } else if (convertTo.getSelectedItem() == "Kenyan Shilling") {
+        } else if (convertTo.getSelectedItem() == "KE Shilling") {
             result = (input * 122.15);
             txtTo.setText("" + result);
         } else if (convertTo.getSelectedItem() == "TZ Shilling") {
@@ -151,14 +147,14 @@ public class CurrencyConverter extends Frame implements ItemListener, ActionList
         }
     }
 
-    public void ConvertEuro() {
+    public void convertEuro() {
         if (convertTo.getSelectedItem() == "US Dollar") {
             result = (input * 1.04);
             txtTo.setText("" + result);
         } else if (convertTo.getSelectedItem() == "Sterling Pound") {
             result = (input * 0.87);
             txtTo.setText("" + result);
-        } else if (convertTo.getSelectedItem() == "Kenyan Shilling") {
+        } else if (convertTo.getSelectedItem() == "KE Shilling") {
             result = (input * 126.87);
             txtTo.setText("" + result);
         } else if (convertTo.getSelectedItem() == "TZ Shilling") {
@@ -168,19 +164,18 @@ public class CurrencyConverter extends Frame implements ItemListener, ActionList
             result = (input * 17.90);
             txtTo.setText("" + result);
         } else {
-            // result = (input * 0.681);
             txtTo.setText("" + input);
         }
     }
 
-    public void ConvertPound() {
+    public void convertPound() {
         if (convertTo.getSelectedItem() == "Dollar") {
             result = (input * 1.19);
             txtTo.setText("" + result);
         } else if (convertTo.getSelectedItem() == "Euro") {
             result = (input * 1.14);
             txtTo.setText("" + result);
-        } else if (convertTo.getSelectedItem() == "Kenyan Shilling") {
+        } else if (convertTo.getSelectedItem() == "KE Shilling") {
             result = (input * 145.00);
             txtTo.setText("" + result);
         } else if (convertTo.getSelectedItem() == "TZ Shilling") {
@@ -194,7 +189,7 @@ public class CurrencyConverter extends Frame implements ItemListener, ActionList
         }
     }
 
-    public void ConvertKe() {
+    public void convertKe() {
         if (convertTo.getSelectedItem() == "Euro") {
             result = (input * 0.0082);
             txtTo.setText("" + result);
@@ -215,14 +210,14 @@ public class CurrencyConverter extends Frame implements ItemListener, ActionList
         }
     }
 
-    public void ConvertTz() {
+    public void convertTz() {
         if (convertTo.getSelectedItem() == "Euro") {
             result = (input * 0.00041);
             txtTo.setText("" + result);
         } else if (convertTo.getSelectedItem() == "Sterling Pound") {
             result = (input * 0.00036);
             txtTo.setText("" + result);
-        } else if (convertTo.getSelectedItem() == "Kenyan Shilling") {
+        } else if (convertTo.getSelectedItem() == "KE Shilling") {
             result = (input * 0.052);
             txtTo.setText("" + result);
         } else if (convertTo.getSelectedItem() == "US Dollar") {
@@ -236,14 +231,14 @@ public class CurrencyConverter extends Frame implements ItemListener, ActionList
         }
     }
 
-    public void ConvertRand() {
+    public void convertRand() {
         if (convertTo.getSelectedItem() == "Euro") {
             result = (input * 0.056);
             txtTo.setText("" + result);
         } else if (convertTo.getSelectedItem() == "Sterling Pound") {
             result = (input * 0.049);
             txtTo.setText("" + result);
-        } else if (convertTo.getSelectedItem() == "Kenyan Shilling") {
+        } else if (convertTo.getSelectedItem() == "KE Shilling") {
             result = (input * 7.12);
             txtTo.setText("" + result);
         } else if (convertTo.getSelectedItem() == "TZ Shilling") {
@@ -260,21 +255,20 @@ public class CurrencyConverter extends Frame implements ItemListener, ActionList
     public void actionPerformed(ActionEvent e) {
 
         input = Double.parseDouble(txtFrom.getText());
-        // String msg = txtFrom.getText();
 
         if (e.getSource() == compute) {
             if (convertFrom.getSelectedItem() == "US Dollar") {
-                ConvertDollar();
+                convertDollar();
             } else if (convertFrom.getSelectedItem() == "Euro") {
-                ConvertEuro();
+                convertEuro();
             } else if (convertFrom.getSelectedItem() == "Sterling Pound") {
-                ConvertEuro();
-            } else if (convertFrom.getSelectedItem() == "Kenyan Shilling") {
-                ConvertKe();
+                convertPound();
+            } else if (convertFrom.getSelectedItem() == "KE Shilling") {
+                convertKe();
             } else if (convertFrom.getSelectedItem() == "TZ Shilling") {
-                ConvertTz();
+                convertTz();
             } else {
-                ConvertRand();
+                convertRand();
             }
 
         }
